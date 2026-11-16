@@ -1,0 +1,93 @@
+<div class="connect-page">
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+
+        <div class="hero-label">
+            <span class="label-line"></span>
+            LET'S TALK
+        </div>
+
+        <h1 class="hero-title">
+            Powering the Next
+            <br>
+            Move <span>starts with a</span>
+            <br>
+            <span>conversation.</span>
+        </h1>
+
+        <p class="hero-description">
+            Whether you want to hop on a call or write out your idea first,
+            we're ready when you are.
+        </p>
+
+    </section>
+
+
+    <!-- Booking Section -->
+    <section class="booking-section">
+
+
+
+        <div class="booking-card">
+
+            <div class="sales-heading">
+                <h2>Contact Our Sales Team</h2>
+                <p class="sales-quote">
+                    Let's discuss your ideas and how we can help.
+                </p>
+            </div>
+
+            <p class="booking-description">
+                Pick a date that works for you, and let's talk about your project.
+            </p>
+
+            <div class="booking-notice">
+                <p>
+                    Looking for a career opportunity?
+                    <a href="#">Use the job application form</a>
+                </p>
+            </div>
+
+            <app-booking-calendar (bookingSelection)="onBookingSelection($event)">
+            </app-booking-calendar>
+
+            <app-booking-form *ngIf="selectedBooking" [selectedDate]="selectedBooking.date"
+                [selectedTime]="selectedBooking.time">
+            </app-booking-form>
+
+            <div class="contact-options">
+
+                <h3>Prefer another way to connect?</h3>
+
+                <div class="contact-item">
+                    <span class="contact-label">SEND A MESSAGE</span>
+                    <a href="mailto:YOUR_EMAIL_HERE">
+                        Email our team →
+                    </a>
+                </div>
+
+                <div class="contact-item">
+                    <span class="contact-label">GIVE US A CALL</span>
+                    <a href="tel:+917338831885">
+                        +91 733 883 1885 →
+                    </a>
+                </div>
+
+                <div class="contact-item">
+                    <span class="contact-label">CHAT WITH US</span>
+                    <a href="https://wa.me/917338831885" target="_blank" rel="noopener noreferrer">
+                        Chat on WhatsApp →
+                    </a>
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+    </section>
+
+</div>

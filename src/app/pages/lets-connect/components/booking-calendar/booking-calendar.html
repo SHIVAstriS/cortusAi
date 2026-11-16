@@ -1,0 +1,89 @@
+
+<div class="calendar-container">
+
+  <!-- Calendar Header -->
+
+  <div class="calendar-header">
+
+    <button
+      class="month-arrow"
+      (click)="previousMonth()"
+      aria-label="Previous month">
+      ‹
+    </button>
+
+    <h3>{{ monthName }} {{ currentYear }}</h3>
+
+    <button
+      class="month-arrow"
+      (click)="nextMonth()"
+      aria-label="Next month">
+      ›
+    </button>
+
+  </div>
+
+
+  <!-- Week Days -->
+
+  <div class="calendar-grid">
+
+    <div
+      class="weekday"
+      *ngFor="let day of weekDays">
+
+      {{ day }}
+
+    </div>
+
+
+    <!-- Calendar Dates -->
+
+    <ng-container *ngFor="let day of calendarDays">
+
+      <div class="calendar-cell">
+
+        <button
+          *ngIf="day !== null"
+          class="date-button"
+          [class.available]="isAvailable(day)"
+          [class.selected]="isSelected(day)"
+          [disabled]="!isAvailable(day)"
+          (click)="selectDate(day)">
+
+          {{ day }}
+
+        </button>
+
+      </div>
+
+    </ng-container>
+
+  </div>
+
+
+  <!-- Available Time Slots -->
+
+  <div class="time-section" *ngIf="selectedDate">
+
+    <p class="time-heading">
+      Available times —
+      {{ selectedDate | date:'EEE, MMM d' }}
+    </p>
+
+    <div class="time-grid">
+
+      <button
+        *ngFor="let time of availableTimes"
+        class="time-button"
+        [class.selected-time]="selectedTime === time"
+        (click)="selectTime(time)">
+
+        {{ time }}
+
+      </button> 
+    </div>
+
+  </div>
+
+</div>
